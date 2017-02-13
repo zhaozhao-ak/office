@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item 
+		android:id="@+id/sys_menu_settings" 
+		android:title="@string/sys_menu_settings"
+		android:icon="@drawable/sys_setting">
+	</item>
+	<item 
+		android:id="@+id/sys_menu_account" 
+		android:title="@string/sys_menu_account"
+		android:icon="@drawable/sys_account">
+	</item>
+	<item 
+		android:id="@+id/sys_menu_register" 
+		android:title="@string/sys_menu_register"
+		android:icon="@drawable/sys_register">
+	</item>
+	<item 
+		android:id="@+id/sys_menu_update" 
+		android:title="@string/sys_menu_update"
+		android:icon="@drawable/sys_update">
+	</item>
+	<item 
+		android:id="@+id/sys_menu_help" 
+		android:title="@string/sys_menu_help"
+		android:icon="@drawable/sys_help">
+	</item>
+	<item 
+		android:id="@+id/sys_menu_about" 
+		android:title="@string/sys_menu_about"
+		android:icon="@drawable/sys_about">
+	</item>
+</menu>
