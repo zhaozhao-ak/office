@@ -307,7 +307,7 @@ public class PDFFind implements IFind
                 }
             }
         };  
-        safeSearchTask.safeExecute(null);
+        safeSearchTask.safeExecute();
     }
     
     

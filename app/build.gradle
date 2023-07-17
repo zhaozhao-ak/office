@@ -1,15 +1,18 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdk 33
+
     defaultConfig {
         applicationId "civetphone.fsc.com.offppt"
-        minSdkVersion 15
-        targetSdkVersion 24
+        minSdk 21
+        targetSdk 31
         versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionName "0.1.1"
+
     }
     buildTypes {
         release {
@@ -20,10 +23,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
+    api 'androidx.appcompat:appcompat:1.1.0'
+//    implementation project(':library-viewer')
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+
+
 }
