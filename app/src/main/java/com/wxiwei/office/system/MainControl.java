@@ -314,8 +314,8 @@ public class MainControl extends AbstractControl
 		             {
 		            	 View contentView = getView();
 		                 //use reflection to get that Method
-		                 Method isHardwareAccelerated = contentView.getClass().getMethod("isHardwareAccelerated", null);
-		                 Object o = isHardwareAccelerated.invoke(contentView, null);
+		                 Method isHardwareAccelerated = contentView.getClass().getMethod("isHardwareAccelerated");
+		                 Object o = isHardwareAccelerated.invoke(contentView);
 		                 if (null != o && o instanceof Boolean && (Boolean)o)
 		                 {
 		                     //ok we're shure that HardwareAcceleration is on.

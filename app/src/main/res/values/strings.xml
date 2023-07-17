@@ -9,6 +9,7 @@
     <string name="sys_button_recently_files">Recently Files</string>
     <string name="sys_button_mark_files">Marked Files</string>
     <string name="sys_button_local_storage">Local Storage</string>
+    <string name="sys_button_system_selector">System File Selector</string>
     <string name="sys_menu_settings">Settings</string>
     <string name="sys_menu_account">Account</string>
     <string name="sys_menu_register">Register</string>

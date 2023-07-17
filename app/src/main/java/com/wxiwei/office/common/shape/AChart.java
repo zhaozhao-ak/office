@@ -84,7 +84,7 @@ public class AChart  extends AbstractShape
             //canvas.drawBitmap(this.bmp, matrix, paint);
             chart.draw(canvas, control, 0, 0, width, height, PaintKit.instance().getPaint());
             
-            canvas.save(Canvas.ALL_SAVE_FLAG);
+            canvas.save(/*Canvas.ALL_SAVE_FLAG*/);
             
             canvas.restore();
             Picture pic = new Picture(); 

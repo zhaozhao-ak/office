@@ -12,8 +12,10 @@ import com.wxiwei.office.officereader.beans.AImageButton;
 import com.wxiwei.office.officereader.beans.AImageTextButton;
 import com.wxiwei.office.system.IControl;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
@@ -22,6 +24,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * 主控窗口
@@ -117,6 +122,9 @@ public class SysFrame extends LinearLayout
         params.gravity = Gravity.CENTER;
         addView(createButtonVertical(context, params , R.drawable.sys_sacard_vertical, 
             R.string.sys_button_local_storage, EventConstant.SYS_MEMORY_CARD_ID));
+
+        addView(createButtonVertical(context, params , R.drawable.sys_sacard_vertical,
+                R.string.sys_button_system_selector, EventConstant.SYS_SYSTEM_FILE_SELECTOR));
         
         // 设置 logo 的 LayoutParams
         mHeight -= (opts.outHeight * 3 + GAP * 12 + 150);
@@ -250,7 +258,9 @@ public class SysFrame extends LinearLayout
                     case EventConstant.SYS_MEMORY_CARD_ID: // sdcard
                         fileListType = MainConstant.INTENT_FILED_SDCARD_FILES;
                         break;
-                        
+                    case EventConstant.SYS_SYSTEM_FILE_SELECTOR:
+                        ((SysActivity)control.getActivity()).pickFile();
+                        return;
                     default:
                         break;
                 }

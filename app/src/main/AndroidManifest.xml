@@ -1,92 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wxiwei.office.officereader"
     android:versionCode="1"
-    android:versionName="2.0.0.4"
-    package="com.wxiwei.office.officereader">
-    <uses-sdk android:minSdkVersion="8"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <application android:icon="@drawable/sys_logo_72x72"
-        android:label="@string/sys_name"><activity
-        android:name="com.wxiwei.office.officereader.SysActivity"
+    android:versionName="2.0.0.4">
+
+<!--    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:icon="@drawable/sys_logo_72x72"
+        android:requestLegacyExternalStorage="true"
         android:label="@string/sys_name">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
-        <intent-filter>
-        <category android:name="android.intent.category.BROWSABLE"/>
-            <data android:scheme="http"/>
-            <data android:scheme="https"/>
-            <data android:scheme="inline"/>
-            <data android:scheme="file"/>
-        </intent-filter>
-        <meta-data android:name="android.app.default_searchable" android:value=".FileListActivity"/>
-    </activity>
+        <activity
+            android:name="com.wxiwei.office.officereader.SysActivity"
+            android:label="@string/sys_name"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="inline" />
+                <data android:scheme="file" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".FileListActivity" />
+        </activity>
         <activity
             android:name="com.wxiwei.office.officereader.FileListActivity"
-            android:label="@string/sys_name"
             android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleTop"><intent-filter><action
-            android:name="android.intent.action.MAIN"/>
-        </intent-filter><intent-filter>
-            <category android:name="android.intent.category.BROWSABLE"/>
-            <data android:scheme="http"/>
-            <data android:scheme="https"/>
-            <data android:scheme="inline"/>
-            <data android:scheme="file"/>
-        </intent-filter>
+            android:label="@string/sys_name"
+            android:launchMode="singleTop"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
-            <meta-data android:name="android.app.searchable"
-                android:resource="@xml/searchable"/></activity>
-        <provider android:name="com.wxiwei.office.officereader.SearchSuggestionsProvider"
-            android:authorities="searchprovider"/><activity
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="inline" />
+                <data android:scheme="file" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <provider
+            android:name="com.wxiwei.office.officereader.SearchSuggestionsProvider"
+            android:authorities="searchprovider" />
+
+        <activity
             android:name="com.wxiwei.office.officereader.AppActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/sys_name"
-            android:configChanges="keyboardHidden|orientation">
-            <intent-filter><action android:name="android.intent.action.MAIN"/>
-            </intent-filter><intent-filter><action android:name="android.intent.action.VIEW"/>
-            <category android:name="android.intent.category.DEFAULT"/>
-            <data android:mimeType="text/plain"/>
-            <data android:mimeType="application/vnd.ms-word"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
-            <data android:mimeType="application/vnd.ms-word.document.macroenabled.12"/>
-            <data android:mimeType="application/msword"/>
-            <data android:mimeType="application/vnd.ms-word.template.macroenabled.12"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.template"/>
-            <data android:mimeType="application/vnd.ms-excel.sheet.macroenabled.12"/>
-            <data android:mimeType="application/vnd.ms-excel"/>
-            <data android:mimeType="application/vnd.ms-excel.addin.macroenabled.12"/>
-            <data android:mimeType="application/vnd.ms-excel.template.macroenabled.12"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.template"/>
-            <data android:mimeType="application/vnd.ms-powerpoint"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.template"/>
-            <data android:mimeType="application/vnd.ms-powerpoint.presentation.macroenabled.12"/>
-            <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.slideshow"/>
-            <data android:mimeType="application/vnd.ms-powerpoint.slideshow.macroenabled.12"/>
-            <data android:mimeType="application/pdf"/>
-        </intent-filter><intent-filter><category
-            android:name="android.intent.category.BROWSABLE"/>
-            <data android:scheme="http"/>
-            <data android:scheme="https"/><data android:scheme="inline"/>
-            <data android:scheme="file"/>
-        </intent-filter></activity><activity
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/vnd.ms-word" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.presentation" />
+                <data android:mimeType="application/vnd.ms-word.document.macroenabled.12" />
+                <data android:mimeType="application/msword" />
+                <data android:mimeType="application/vnd.ms-word.template.macroenabled.12" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.template" />
+                <data android:mimeType="application/vnd.ms-excel.sheet.macroenabled.12" />
+                <data android:mimeType="application/vnd.ms-excel" />
+                <data android:mimeType="application/vnd.ms-excel.addin.macroenabled.12" />
+                <data android:mimeType="application/vnd.ms-excel.template.macroenabled.12" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.template" />
+                <data android:mimeType="application/vnd.ms-powerpoint" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.template" />
+                <data android:mimeType="application/vnd.ms-powerpoint.presentation.macroenabled.12" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.slideshow" />
+                <data android:mimeType="application/vnd.ms-powerpoint.slideshow.macroenabled.12" />
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+            <intent-filter><category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="inline" />
+                <data android:scheme="file" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.wxiwei.office.officereader.SettingActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/sys_name"
-            android:configChanges="keyboardHidden|orientation"><intent-filter><action
-            android:name="android.intent.action.MAIN"/></intent-filter><intent-filter><category
-            android:name="android.intent.category.BROWSABLE"/>
-            <data android:scheme="http"/><data
-                android:scheme="https"/><data
-                android:scheme="inline"/><data
-                android:scheme="file"/></intent-filter>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <intent-filter><category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="inline" />
+                <data android:scheme="file" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>

@@ -71,6 +71,7 @@ public final class EventConstant
     public static final int SYS_SET_PROGRESS_BAR_ID = SYS_RESET_TITLE_ID + 1; // 21 
     // vector graph converting progress
     public static final int SYS_VECTORGRAPH_PROGRESS = SYS_SET_PROGRESS_BAR_ID + 1; // 22
+    public static final int SYS_SYSTEM_FILE_SELECTOR = SYS_VECTORGRAPH_PROGRESS + 1;
     
     
     /* =============== 文件操作 ActionID ============== */
